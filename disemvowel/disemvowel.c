@@ -22,7 +22,7 @@ char *disemvowel(char *str) {
   newStringLength = vowelCheck(str);
   newString = (char*) calloc(newStringLength+1, sizeof(char));
   while(str[i] != '\0'){
-	oldletter = str[i];
+	oldletter = tolower(str[i]);
      if(oldletter == 'a' || oldletter == 'e' || oldletter == 'i' || oldletter == 'o' || oldletter == 'u' ){	
 	i++;
      } else{ 
