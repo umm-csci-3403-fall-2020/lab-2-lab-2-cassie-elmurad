@@ -4,9 +4,9 @@
 #include "disemvowel.h"
 
 int vowelCheck(char *str){
-char letter;
-int i =0;
-  int stringLength = strlen(str);
+ char letter;
+ int i = 0;
+ int stringLength = strlen(str);
   letter = tolower(str[i]);
   if(letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u' ){
         stringLength--;
@@ -18,9 +18,10 @@ int i =0;
 char *disemvowel(char *str) {
   char *newString, oldletter;
   int i =0, j=0, newStringLength=0;
-  // string length gets plus one because of null terminator
+  // get new string length based off of given string length
   newStringLength = vowelCheck(str);
-  newString = (char*) calloc(newStringLength+1, sizeof(char));
+  newString = (char*)calloc(newStringLength+2, sizeof(char));
+  
   while(str[i] != '\0'){
 	oldletter = tolower(str[i]);
      if(oldletter == 'a' || oldletter == 'e' || oldletter == 'i' || oldletter == 'o' || oldletter == 'u' ){	
@@ -32,8 +33,9 @@ char *disemvowel(char *str) {
 	     
      }
      // Add null thing to end 
-     newString[newStringLength+1] = '\0';   
-  }
+     newString[newStringLength+1] = '\0';
+     
+  } 
   return newString;
 }
 
